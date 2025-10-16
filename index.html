@@ -1,132 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legendary Portfolio Hero</title>
+  <title> Periodic Table</title>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      height: 100vh;
+      font-family: 'Inter', sans-serif;
       background: radial-gradient(circle at top left, #0f0f0f, #000);
       color: #fff;
-      overflow: hidden;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      position: relative;
       text-align: center;
+      padding: 40px 10px;
+      min-height: 100vh;
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 60px 100px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-    }
-
-    .glass-card:hover {
-      transform: perspective(600px) rotateY(5deg) rotateX(3deg) scale(1.05);
-      box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-    }
-
-    .title {
-      font-size: 3.8rem;
-      background: linear-gradient(90deg, #ffea00, #ff007f, #00d4ff);
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #00e0ff, #ff008c, #ffe600);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientShift 6s infinite alternate ease-in-out;
-      letter-spacing: 2px;
+      animation: gradientShift 6s ease-in-out infinite alternate;
     }
 
     @keyframes gradientShift {
-      0% { background-position: 0%; }
-      100% { background-position: 100%; }
+      0% {
+        background-position: 0%;
+      }
+
+      100% {
+        background-position: 100%;
+      }
     }
 
-    .subtitle {
-      font-size: 1.2rem;
-      margin: 15px 0 35px;
-      color: #ccc;
-      letter-spacing: 1px;
+    table {
+      margin: 0 auto 25px;
+      border-collapse: collapse;
+      backdrop-filter: blur(15px);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 14px 38px;
-      font-size: 1rem;
-      color: #000;
+    td {
+      width: 65px;
+      height: 65px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      font-size: 13px;
       font-weight: 600;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(90deg, #ffea00, #ff007f);
+      text-align: center;
+      vertical-align: middle;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      color: #f1f1f1;
+      backdrop-filter: blur(10px);
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.05);
+    }
+
+    td:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+      z-index: 10;
     }
 
-    .btn:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 0 35px rgba(255, 0, 127, 0.6);
+    .empty {
+      border: none;
+      background: transparent;
+      box-shadow: none;
     }
 
-    .circle {
+    /* Color groups with neon glow */
+    .alkali {
+      background: rgba(255, 69, 69, 0.1);
+      box-shadow: 0 0 12px rgba(255, 69, 69, 0.4);
+    }
+
+    .alkaline {
+      background: rgba(255, 200, 50, 0.1);
+      box-shadow: 0 0 12px rgba(255, 200, 50, 0.4);
+    }
+
+    .transition {
+      background: rgba(0, 255, 200, 0.1);
+      box-shadow: 0 0 12px rgba(0, 255, 200, 0.4);
+    }
+
+    .basic {
+      background: rgba(0, 102, 255, 0.1);
+      box-shadow: 0 0 12px rgba(0, 102, 255, 0.4);
+    }
+
+    .metalloid {
+      background: rgba(255, 0, 255, 0.1);
+      box-shadow: 0 0 12px rgba(255, 0, 255, 0.4);
+    }
+
+    .nonmetal {
+      background: rgba(150, 100, 255, 0.1);
+      box-shadow: 0 0 12px rgba(150, 100, 255, 0.4);
+    }
+
+    .halogen {
+      background: rgba(255, 150, 50, 0.1);
+      box-shadow: 0 0 12px rgba(255, 150, 50, 0.4);
+    }
+
+    .noble {
+      background: rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+    }
+
+    .lanthanide {
+      background: rgba(255, 255, 100, 0.1);
+      box-shadow: 0 0 12px rgba(255, 255, 100, 0.4);
+    }
+
+    .actinide {
+      background: rgba(255, 100, 150, 0.1);
+      box-shadow: 0 0 12px rgba(255, 100, 150, 0.4);
+    }
+
+    /* Legend section */
+    .legend {
+      border: none;
+      margin-top: 30px;
+    }
+
+    .legend td {
+      padding: 10px 15px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.9rem;
+      border: none;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Floating background glow */
+    .glow {
       position: absolute;
       border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.5;
-      animation: float 10s infinite ease-in-out;
+      filter: blur(150px);
+      opacity: 0.4;
+      animation: float 8s infinite ease-in-out alternate;
     }
 
-    .circle.one {
+    .glow.one {
       width: 400px;
       height: 400px;
       background: #ff007f;
-      top: 10%;
-      left: 15%;
-      animation-delay: 0s;
+      top: 5%;
+      left: 10%;
     }
 
-    .circle.two {
+    .glow.two {
       width: 300px;
       height: 300px;
-      background: #00d4ff;
-      bottom: 10%;
-      right: 20%;
+      background: #00d9ff;
+      bottom: 5%;
+      right: 15%;
       animation-delay: 2s;
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-40px); }
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-50px);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      td {
+        width: 38px;
+        height: 38px;
+        font-size: 9px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
-<body>
-  <div class="hero">
-    <div class="circle one"></div>
-    <div class="circle two"></div>
 
-    <div class="glass-card">
-      <h1 class="title">I'm Hunzala Zafar</h1>
-      <p class="subtitle">Next.js Developer | UI/UX Designer | AI & Automation Enthusiast</p>
-      <button class="btn">View My Work</button>
-    </div>
-  </div>
+<body>
+  <div class="glow one"></div>
+  <div class="glow two"></div>
+
+  <h1>Legendary Periodic Table of Elements</h1>
+
+  <!-- Periodic Table -->
+  <table>
+    <tr>
+      <td class="alkali">H<br>1</td>
+      <td colspan="16" class="empty"></td>
+      <td class="noble">He<br>2</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">Li<br>3</td>
+      <td class="alkaline">Be<br>4</td>
+      <td colspan="10" class="empty"></td>
+      <td class="metalloid">B<br>5</td>
+      <td class="nonmetal">C<br>6</td>
+      <td class="nonmetal">N<br>7</td>
+      <td class="nonmetal">O<br>8</td>
+      <td class="halogen">F<br>9</td>
+      <td class="noble">Ne<br>10</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">Na<br>11</td>
+      <td class="alkaline">Mg<br>12</td>
+      <td colspan="10" class="empty"></td>
+      <td class="basic">Al<br>13</td>
+      <td class="metalloid">Si<br>14</td>
+      <td class="nonmetal">P<br>15</td>
+      <td class="nonmetal">S<br>16</td>
+      <td class="halogen">Cl<br>17</td>
+      <td class="noble">Ar<br>18</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">K<br>19</td>
+      <td class="alkaline">Ca<br>20</td>
+      <td class="transition">Sc<br>21</td>
+      <td class="transition">Ti<br>22</td>
+      <td class="transition">V<br>23</td>
+      <td class="transition">Cr<br>24</td>
+      <td class="transition">Mn<br>25</td>
+      <td class="transition">Fe<br>26</td>
+      <td class="transition">Co<br>27</td>
+      <td class="transition">Ni<br>28</td>
+      <td class="transition">Cu<br>29</td>
+      <td class="transition">Zn<br>30</td>
+      <td class="basic">Ga<br>31</td>
+      <td class="metalloid">Ge<br>32</td>
+      <td class="metalloid">As<br>33</td>
+      <td class="nonmetal">Se<br>34</td>
+      <td class="halogen">Br<br>35</td>
+      <td class="noble">Kr<br>36</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">Rb<br>37</td>
+      <td class="alkaline">Sr<br>38</td>
+      <td class="transition">Y<br>39</td>
+      <td class="transition">Zr<br>40</td>
+      <td class="transition">Nb<br>41</td>
+      <td class="transition">Mo<br>42</td>
+      <td class="transition">Tc<br>43</td>
+      <td class="transition">Ru<br>44</td>
+      <td class="transition">Rh<br>45</td>
+      <td class="transition">Pd<br>46</td>
+      <td class="transition">Ag<br>47</td>
+      <td class="transition">Cd<br>48</td>
+      <td class="basic">In<br>49</td>
+      <td class="basic">Sn<br>50</td>
+      <td class="metalloid">Sb<br>51</td>
+      <td class="metalloid">Te<br>52</td>
+      <td class="halogen">I<br>53</td>
+      <td class="noble">Xe<br>54</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">Cs<br>55</td>
+      <td class="alkaline">Ba<br>56</td>
+      <td class="lanthanide">*</td>
+      <td class="transition">Hf<br>72</td>
+      <td class="transition">Ta<br>73</td>
+      <td class="transition">W<br>74</td>
+      <td class="transition">Re<br>75</td>
+      <td class="transition">Os<br>76</td>
+      <td class="transition">Ir<br>77</td>
+      <td class="transition">Pt<br>78</td>
+      <td class="transition">Au<br>79</td>
+      <td class="transition">Hg<br>80</td>
+      <td class="basic">Tl<br>81</td>
+      <td class="basic">Pb<br>82</td>
+      <td class="basic">Bi<br>83</td>
+      <td class="basic">Po<br>84</td>
+      <td class="halogen">At<br>85</td>
+      <td class="noble">Rn<br>86</td>
+    </tr>
+
+    <tr>
+      <td class="alkali">Fr<br>87</td>
+      <td class="alkaline">Ra<br>88</td>
+      <td class="actinide">**</td>
+      <td class="transition">Rf<br>104</td>
+      <td class="transition">Db<br>105</td>
+      <td class="transition">Sg<br>106</td>
+      <td class="transition">Bh<br>107</td>
+      <td class="transition">Hs<br>108</td>
+      <td class="transition">Mt<br>109</td>
+      <td class="transition">Ds<br>110</td>
+      <td class="transition">Rg<br>111</td>
+      <td class="transition">Cn<br>112</td>
+      <td class="basic">Nh<br>113</td>
+      <td class="basic">Fl<br>114</td>
+      <td class="basic">Mc<br>115</td>
+      <td class="basic">Lv<br>116</td>
+      <td class="halogen">Ts<br>117</td>
+      <td class="noble">Og<br>118</td>
+    </tr>
+  </table>
+
+  <!-- Lanthanides -->
+  <table>
+    <tr>
+      <td colspan="2" class="lanthanide"><b>Lanthanides</b></td>
+      <td>La<br>57</td>
+      <td>Ce<br>58</td>
+      <td>Pr<br>59</td>
+      <td>Nd<br>60</td>
+      <td>Pm<br>61</td>
+      <td>Sm<br>62</td>
+      <td>Eu<br>63</td>
+      <td>Gd<br>64</td>
+      <td>Tb<br>65</td>
+      <td>Dy<br>66</td>
+      <td>Ho<br>67</td>
+      <td>Er<br>68</td>
+      <td>Tm<br>69</td>
+      <td>Yb<br>70</td>
+      <td>Lu<br>71</td>
+    </tr>
+
+    <tr>
+      <td colspan="2" class="actinide"><b>Actinides</b></td>
+      <td>Ac<br>89</td>
+      <td>Th<br>90</td>
+      <td>Pa<br>91</td>
+      <td>U<br>92</td>
+      <td>Np<br>93</td>
+      <td>Pu<br>94</td>
+      <td>Am<br>95</td>
+      <td>Cm<br>96</td>
+      <td>Bk<br>97</td>
+      <td>Cf<br>98</td>
+      <td>Es<br>99</td>
+      <td>Fm<br>100</td>
+      <td>Md<br>101</td>
+      <td>No<br>102</td>
+      <td>Lr<br>103</td>
+    </tr>
+  </table>
+
+  <!-- Legend -->
+  <table class="legend">
+    <tr>
+      <td class="alkali">Alkali Metal</td>
+      <td class="alkaline">Alkaline Earth</td>
+      <td class="transition">Transition Metal</td>
+      <td class="basic">Basic Metal</td>
+      <td class="metalloid">Metalloid</td>
+      <td class="nonmetal">Nonmetal</td>
+      <td class="halogen">Halogen</td>
+      <td class="noble">Noble Gas</td>
+      <td class="lanthanide">Lanthanide</td>
+      <td class="actinide">Actinide</td>
+    </tr>
+  </table>
 </body>
+
 </html>
