@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legendary Portfolio Hero</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: radial-gradient(circle at top left, #0f0f0f, #000);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      text-align: center;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 60px 100px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .glass-card:hover {
+      transform: perspective(600px) rotateY(5deg) rotateX(3deg) scale(1.05);
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
+    }
+
+    .title {
+      font-size: 3.8rem;
+      background: linear-gradient(90deg, #ffea00, #ff007f, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 6s infinite alternate ease-in-out;
+      letter-spacing: 2px;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0%; }
+      100% { background-position: 100%; }
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      margin: 15px 0 35px;
+      color: #ccc;
+      letter-spacing: 1px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 38px;
+      font-size: 1rem;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #ffea00, #ff007f);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 0, 127, 0.6);
+    }
+
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.5;
+      animation: float 10s infinite ease-in-out;
+    }
+
+    .circle.one {
+      width: 400px;
+      height: 400px;
+      background: #ff007f;
+      top: 10%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .circle.two {
+      width: 300px;
+      height: 300px;
+      background: #00d4ff;
+      bottom: 10%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="circle one"></div>
+    <div class="circle two"></div>
+
+    <div class="glass-card">
+      <h1 class="title">I'm Hunzala Zafar</h1>
+      <p class="subtitle">Next.js Developer | UI/UX Designer | AI & Automation Enthusiast</p>
+      <button class="btn">View My Work</button>
+    </div>
+  </div>
+</body>
+</html>
